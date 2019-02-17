@@ -8,8 +8,10 @@ namespace ClothBazar.Entities
 {
     public class Product: BaseEntity
     {
-        public Category category { get; set; }
+        
         public decimal Price { get; set; }
+        //public int CategoryID { get; set; }
+        public virtual Category category { get; set; }
         
     }
 }

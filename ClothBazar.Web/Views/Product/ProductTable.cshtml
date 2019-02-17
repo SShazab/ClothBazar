@@ -3,14 +3,29 @@
     ViewBag.Title = "ProductTable";
 }
 <div>
-    <form method="post" >
-        <input id="searchtxt" name="search" />
-        <button type="button" id="searchbtn">Search</button>
-    </form>
-    <button id="newBtn">New</button>
-</div>
+    <label>Search</label>
+    <div class="row">
+        <div class="col-md-10">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <input class="form-control" id="searchtxt" name="search" />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                            <button class="btn btn-primary form-control" type="button" id="searchbtn">Search</button>   
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-outline-primary" id="newBtn">New</button>
+        </div>
+    </div>
+      </div>
 <div>
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <td>Product Name</td>
@@ -24,7 +39,16 @@
             {
                 <tr>
                     <td>@product.Name</td>
-                    <td>-</td>
+                    <td>
+                        @if (product.category != null)
+                        {
+                            <text>@product.category.Name</text>
+                        }
+                        else
+                        {
+                            <text>-</text>
+}
+                    </td>
                     <td>@product.Price</td>
                     <td>
                         <button class="editButton" product-id="@product.ID">Edit</button>

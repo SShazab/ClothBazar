@@ -8,7 +8,9 @@ namespace ClothBazar.Entities
 {
     public class Category: BaseEntity
     {
+        public string ImageURL { get; set; }
         public List<Product> Products { get; set; }//one category have multiple product
+        public bool isFeatured { get; set; }
 
 
     }
