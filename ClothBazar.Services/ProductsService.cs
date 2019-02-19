@@ -16,7 +16,7 @@ namespace ClothBazar.Services
 
             using (var context = new CBContext())
             {
-                return context.Products.Find(ID);
+                return context.Products.Where(x => x.ID == ID).Include(x => x.category).FirstOrDefault();
             }
         }
         public List<Product>GetProducts()
@@ -54,7 +54,7 @@ namespace ClothBazar.Services
                 var product = context.Products.Find(ID);
                 context.Entry(product).State = System.Data.Entity.EntityState.Deleted;
                 //both working same above or below
-                //context.Categories.Remove(category);
+                //context.products.Remove(category);
                 context.SaveChanges();
             }
         }
